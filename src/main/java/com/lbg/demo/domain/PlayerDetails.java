@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class PlayerDetails {
@@ -15,6 +16,17 @@ public class PlayerDetails {
 	private String player;
 
 	private String club;
+
+	@ManyToOne
+	private Nationality nationality;
+
+	public Nationality getNationality() {
+		return nationality;
+	}
+
+	public void setNationality(Nationality nationality) {
+		this.nationality = nationality;
+	}
 
 	public PlayerDetails() {
 		super();

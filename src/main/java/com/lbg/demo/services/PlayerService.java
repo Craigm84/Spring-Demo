@@ -3,7 +3,6 @@ package com.lbg.demo.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -12,10 +11,14 @@ import com.lbg.demo.domain.PlayerDetails;
 import com.lbg.demo.repo.PlayerRepo;
 
 @Service
-public class DemoService {
+public class PlayerService {
 
-	@Autowired
 	private PlayerRepo repo;
+
+	public PlayerService(PlayerRepo repo) {
+		super();
+		this.repo = repo;
+	}
 
 	public ResponseEntity<PlayerDetails> createPlayer(PlayerDetails newPlayer) {
 		PlayerDetails created = this.repo.save(newPlayer);
